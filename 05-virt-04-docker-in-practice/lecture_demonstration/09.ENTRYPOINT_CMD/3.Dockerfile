@@ -6,8 +6,8 @@ ENTRYPOINT ["/bin/ping"]
 CMD ["ya.ru"]
 
 # Сборка и запуск:
-# docker build -f 4.Dockerfile -t test_entry_cmd_4 .
-# docker run --rm --name test_entry_cmd_4 test_entry_cmd_4
+# docker build -f 3.Dockerfile -t test_entry_cmd_3 .
+# docker run --rm --name test_entry_cmd_3 test_entry_cmd_3
 
 
 # Это идеальный паттерн:
