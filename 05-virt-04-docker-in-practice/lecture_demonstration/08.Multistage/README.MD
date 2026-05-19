@@ -8,3 +8,4 @@
 - При необходимости зайти: `docker exec -it test_python_multistage ash`
 - Очистить: `docker rm -f test_python_multistage`
 - Сравнить размеры образов: `docker images | grep test_python`
+- history: `docker history test_python_multistage`
