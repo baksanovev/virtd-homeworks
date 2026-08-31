@@ -26,6 +26,9 @@ See 'snap info docker' for additional versions.
 2. Убедитесь что у вас УСТАНОВЛЕН ```docker compose```(без тире) версии не менее v2.24.X, для это выполните команду ```docker compose version```  
 ###  **Своё решение к задачам оформите в вашем GitHub репозитории!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
 
+<img width="735" height="126" alt="image" src="https://github.com/user-attachments/assets/cf2baec3-74e2-495a-95e7-4c8b8aa6cf17" />
+
+
 ---
 
 ## Задача 1
@@ -43,14 +46,13 @@ See 'snap info docker' for additional versions.
 ---
 ### ВНИМАНИЕ!
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
----
 
-## Задача 2 (*)
-1. Создайте в yandex cloud container registry с именем "test" с помощью "yc tool" . [Инструкция](https://cloud.yandex.ru/ru/docs/container-registry/quickstart/?from=int-console-help)
-2. Настройте аутентификацию вашего локального docker в yandex container registry.
-3. Соберите и залейте в него образ с python приложением из задания №1.
-4. Просканируйте образ на уязвимости.
-5. В качестве ответа приложите отчет сканирования.
+
+<img width="974" height="502" alt="image" src="https://github.com/user-attachments/assets/3b9c5df8-13fb-4582-b59c-a67e6d54f62d" />
+
+
+
+---
 
 ## Задача 3
 1. Изучите файл "proxy.yaml"
@@ -68,6 +70,11 @@ See 'snap info docker' for additional versions.
 
 6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
+
+<img width="1405" height="599" alt="image" src="https://github.com/user-attachments/assets/a4c91ab0-4a39-47d2-aee1-0774f0932ef7" />
+<img width="586" height="620" alt="image" src="https://github.com/user-attachments/assets/f0cd689a-73fd-40ed-9e98-762389407e28" />
+
+
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
 2. Подключитесь к Вм по ssh и установите docker.
@@ -76,13 +83,17 @@ See 'snap info docker' for additional versions.
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. Повторите SQL-запрос на сервере и приложите скриншот и ссылку на fork.
 
-## Задача 5 (*)
-1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
-2. Протестируйте ручной запуск
-3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
-4. Предоставьте скрипт, cron-task и скриншот с несколькими резервными копиями в "/opt/backup"
+https://github.com/baksanovev/shvirtd-example-python
+
+<img width="961" height="836" alt="image" src="https://github.com/user-attachments/assets/352c8e0f-0c32-4ffd-a4f9-2a774bfb9c83" />
+<img width="571" height="484" alt="image" src="https://github.com/user-attachments/assets/415043d2-0dac-456b-9215-07ae78702843" />
 
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
+Образ hashicorp/terraform был сохранён с помощью docker save. Так как образ сохранён в формате OCI, слои находятся в каталоге blobs/sha256. В одном из слоёв был найден файл bin/terraform, после чего бинарный файл был извлечён и успешно запущен. Версия Terraform — 1.16.0, платформа — linux_amd64.
+
+<img width="1511" height="726" alt="image" src="https://github.com/user-attachments/assets/887e3303-57ce-4c4f-8c41-3bb2785def66" />
+<img width="1208" height="213" alt="image" src="https://github.com/user-attachments/assets/2634d69e-e92f-41f5-8b8b-ed05bfa94188" />
 
