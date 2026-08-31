@@ -1,13 +1,6 @@
 
 # Домашнее задание к занятию 4 «Оркестрация группой Docker контейнеров на примере Docker Compose»
 
-### Инструкция к выполению
-
-1. Для выполнения заданий обязательно ознакомьтесь с [инструкцией](https://github.com/netology-code/devops-materials/blob/master/cloudwork.MD) по экономии облачных ресурсов. Это нужно, чтобы не расходовать средства, полученные в результате использования промокода.
-2. Практические задачи выполняйте на личной рабочей станции или созданной вами ранее ВМ в облаке.
-3. Своё решение к задачам оформите в вашем GitHub репозитории в формате markdown!!!
-4. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
-
 ## Задача 1
 
 Сценарий выполнения задачи:
@@ -29,6 +22,9 @@ Hey, Netology
 - Соберите и отправьте созданный образ в свой dockerhub-репозитории c tag 1.0.0 (ТОЛЬКО ЕСЛИ ЕСТЬ ДОСТУП). 
 - Предоставьте ответ в виде ссылки на https://hub.docker.com/<username_repo>/custom-nginx/general .
 
+## Решение:
+https://hub.docker.com/r/baksanovev/custom-nginx
+
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
 - имя контейнера "ФИО-custom-nginx-t2"
@@ -39,6 +35,10 @@ Hey, Netology
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+## Решение:
+<img width="1500" height="686" alt="image" src="https://github.com/user-attachments/assets/7de7a6ad-3e65-4f22-9015-78c170956cd9" />
+
 
 
 ## Задача 3
@@ -57,6 +57,18 @@ Hey, Netology
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+## Решение:
+
+Команда docker attach подключила терминал к стандартным потокам основного процесса контейнера. При нажатии Ctrl+C процесс nginx получил сигнал завершения. Так как nginx является основным процессом контейнера PID 1, после его завершения остановился и сам контейнер.
+
+При создании контейнера порт хоста 127.0.0.1:8080 был связан с портом 80 контейнера. После изменения конфигурации nginx он перестал слушать порт 80 и начал слушать порт 81. При этом Docker продолжает перенаправлять соединения с 8080 хоста на 80 контейнера, поэтому HTTP-запрос завершается ошибкой.
+
+<img width="957" height="394" alt="image" src="https://github.com/user-attachments/assets/09469f24-12e1-4b78-af4a-4d87a999749b" />
+<img width="901" height="520" alt="image" src="https://github.com/user-attachments/assets/6c224e1c-ce1e-4ca9-86e7-0e178ae38570" />
+<img width="705" height="357" alt="image" src="https://github.com/user-attachments/assets/27d82c67-3bba-400c-9566-ea965a5a485a" />
+<img width="858" height="125" alt="image" src="https://github.com/user-attachments/assets/269aeb58-ef08-4e26-8e59-52b475e25155" />
+
+
 ## Задача 4
 
 
@@ -68,6 +80,11 @@ Hey, Netology
 
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+## Решение:
+<img width="1315" height="613" alt="image" src="https://github.com/user-attachments/assets/a72c5eea-f9e0-4cc1-b2f4-feb54b245436" />
+<img width="996" height="347" alt="image" src="https://github.com/user-attachments/assets/9c5a64b6-6b00-452c-bfad-9cd94b4606fd" />
+
 
 
 ## Задача 5
@@ -116,6 +133,18 @@ services:
 7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
+
+## Решение:
+
+Docker Compose автоматически выбрал compose.yaml, поскольку это предпочтительное стандартное имя Compose-файла. Поэтому сервис registry, описанный в docker-compose.yaml, при первом запуске не был создан.
+<img width="1116" height="477" alt="image" src="https://github.com/user-attachments/assets/b7a928c4-625d-4aa0-af70-3ea6689fba22" />
+<img width="1148" height="563" alt="image" src="https://github.com/user-attachments/assets/5e1e4378-a497-4c9a-9931-0dfce3f525d3" />
+<img width="1193" height="559" alt="image" src="https://github.com/user-attachments/assets/9e3ccbee-ae5c-4938-8c35-51836d1f20d4" />
+<img width="961" height="311" alt="image" src="https://github.com/user-attachments/assets/d1ac5fd6-fade-4b18-b502-4ba331a1eb6a" />
+<img width="764" height="841" alt="image" src="https://github.com/user-attachments/assets/68d7686e-a000-4767-98af-598eba25ad5c" />
+<img width="1191" height="643" alt="image" src="https://github.com/user-attachments/assets/f18a45b5-6095-46f6-8575-7de0a0bed2bd" />
+
+
 
 ---
 
