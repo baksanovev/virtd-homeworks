@@ -137,6 +137,8 @@ services:
 ## Решение:
 
 Docker Compose автоматически выбрал compose.yaml, поскольку это предпочтительное стандартное имя Compose-файла. Поэтому сервис registry, описанный в docker-compose.yaml, при первом запуске не был создан.
+После удаления compose.yaml команда docker compose up -d обнаружила orphan-контейнер, который был создан предыдущей конфигурацией, но отсутствует в текущем compose-файле. Для удаления такого контейнера была выполнена команда docker compose up -d --remove-orphans. После этого compose-проект был остановлен одной командой docker compose down.
+
 <img width="1116" height="477" alt="image" src="https://github.com/user-attachments/assets/b7a928c4-625d-4aa0-af70-3ea6689fba22" />
 <img width="1148" height="563" alt="image" src="https://github.com/user-attachments/assets/5e1e4378-a497-4c9a-9931-0dfce3f525d3" />
 <img width="1193" height="559" alt="image" src="https://github.com/user-attachments/assets/9e3ccbee-ae5c-4938-8c35-51836d1f20d4" />
